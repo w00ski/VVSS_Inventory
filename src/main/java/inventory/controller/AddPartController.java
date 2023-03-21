@@ -155,28 +155,26 @@ public class AddPartController implements Initializable, Controller {
         errorMessage = "";
 
         try {
-            errorMessage = Part.isValidPart(name, Double.parseDouble(price), Integer.parseInt(inStock), Integer.parseInt(min), Integer.parseInt(max), errorMessage);
-            if (errorMessage.length() > 0) {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Error Adding Part!");
-                alert.setHeaderText("Error!");
-                alert.setContentText(errorMessage);
-                alert.showAndWait();
+            Part.isValidPart(name, Double.parseDouble(price), Integer.parseInt(inStock), Integer.parseInt(min), Integer.parseInt(max), errorMessage);
+            if (isOutsourced == true) {
+                service.addOutsourcePart(name, Double.parseDouble(price), Integer.parseInt(inStock), Integer.parseInt(min), Integer.parseInt(max), partDynamicValue);
             } else {
-                if (isOutsourced == true) {
-                    service.addOutsourcePart(name, Double.parseDouble(price), Integer.parseInt(inStock), Integer.parseInt(min), Integer.parseInt(max), partDynamicValue);
-                } else {
-                    service.addInhousePart(name, Double.parseDouble(price), Integer.parseInt(inStock), Integer.parseInt(min), Integer.parseInt(max), Integer.parseInt(partDynamicValue));
-                }
-                displayScene(event, "/fxml/MainScreen.fxml");
+                service.addInhousePart(name, Double.parseDouble(price), Integer.parseInt(inStock), Integer.parseInt(min), Integer.parseInt(max), Integer.parseInt(partDynamicValue));
             }
-
+            displayScene(event, "/fxml/MainScreen.fxml");
         } catch (NumberFormatException e) {
             System.out.println("Form contains blank field.");
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Error Adding Part!");
             alert.setHeaderText("Error!");
             alert.setContentText("Form contains blank field.");
+            alert.showAndWait();
+        } catch (RuntimeException e) {
+            errorMessage = e.getMessage();
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Error Adding Part!");
+            alert.setHeaderText("Error!");
+            alert.setContentText(errorMessage);
             alert.showAndWait();
         }
     }

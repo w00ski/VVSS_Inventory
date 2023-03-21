@@ -116,7 +116,7 @@ public class Product {
      * @param errorMessage
      * @return
      */
-    public static String isValidProduct(String name, double price, int inStock, int min, int max, ObservableList<Part> parts, String errorMessage) {
+    public static boolean isValidProduct(String name, double price, int inStock, int min, int max, ObservableList<Part> parts, String errorMessage) {
         double sumOfParts = 0.00;
         for (int i = 0; i < parts.size(); i++) {
             sumOfParts += parts.get(i).getPrice();
@@ -145,7 +145,8 @@ public class Product {
         if (sumOfParts > price) {
             errorMessage += "Product price must be greater than cost of parts. ";
         }
-        return errorMessage;
+        if(errorMessage.isEmpty()) return true;
+        throw new RuntimeException(errorMessage);
     }
 
     @Override

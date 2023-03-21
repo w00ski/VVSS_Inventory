@@ -84,7 +84,7 @@ public abstract class Part {
      * @param errorMessage
      * @return
      */
-    public static String isValidPart(String name, double price, int inStock, int min, int max, String errorMessage) {
+    public static boolean isValidPart(String name, double price, int inStock, int min, int max, String errorMessage) {
         if (name.equals("")) {
             errorMessage += "A name has not been entered. ";
         }
@@ -103,7 +103,8 @@ public abstract class Part {
         if (inStock > max) {
             errorMessage += "Inventory level is greater than the maximum value. ";
         }
-        return errorMessage;
+        if (errorMessage.isEmpty()) return true;
+        throw new RuntimeException(errorMessage);
     }
 
     @Override
