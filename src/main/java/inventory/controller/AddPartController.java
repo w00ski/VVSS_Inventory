@@ -18,7 +18,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class AddPartController implements Initializable, Controller {
-    
+
     // Declare fields
     private Stage stage;
     private Parent scene;
@@ -27,18 +27,15 @@ public class AddPartController implements Initializable, Controller {
     private int partId;
 
     private InventoryService service;
-    
+
     @FXML
     private RadioButton inhouseRBtn;
 
     @FXML
     private RadioButton outsourcedRBtn;
-    
-    @FXML
-    private Label addPartDynamicLbl;
 
     @FXML
-    private TextField partIdTxt;
+    private Label addPartDynamicLbl;
 
     @FXML
     private TextField nameTxt;
@@ -48,7 +45,7 @@ public class AddPartController implements Initializable, Controller {
 
     @FXML
     private TextField priceTxt;
-    
+
     @FXML
     private TextField addPartDynamicTxt;
 
@@ -58,12 +55,13 @@ public class AddPartController implements Initializable, Controller {
     @FXML
     private TextField minTxt;
 
-    public AddPartController(){}
+    public AddPartController() {
+    }
 
     @Override
-    public void setService(InventoryService service){
+    public void setService(InventoryService service) {
 
-        this.service=service;
+        this.service = service;
     }
 
     /**
@@ -73,19 +71,21 @@ public class AddPartController implements Initializable, Controller {
     public void initialize(URL url, ResourceBundle rb) {
         outsourcedRBtn.setSelected(true);
     }
+
     /**
      * Method to add to button handler to switch to scene passed as source
+     *
      * @param event
      * @param source
      * @throws IOException
      */
     @FXML
     private void displayScene(ActionEvent event, String source) throws IOException {
-        stage = (Stage)((Button)event.getSource()).getScene().getWindow();
-        FXMLLoader loader= new FXMLLoader(getClass().getResource(source));
+        stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(source));
         //scene = FXMLLoader.load(getClass().getResource(source));
         scene = loader.load();
-        Controller ctrl=loader.getController();
+        Controller ctrl = loader.getController();
         ctrl.setService(service);
         stage.setScene(new Scene(scene));
         stage.show();
@@ -94,6 +94,7 @@ public class AddPartController implements Initializable, Controller {
     /**
      * Ask user for confirmation before canceling part addition
      * and switching scene to Main Screen
+     *
      * @param event
      * @throws IOException
      */
@@ -105,7 +106,7 @@ public class AddPartController implements Initializable, Controller {
         alert.setHeaderText("Confirm Cancelation");
         alert.setContentText("Are you sure you want to cancel adding part?");
         Optional<ButtonType> result = alert.showAndWait();
-        if(result.get() == ButtonType.OK) {
+        if (result.get() == ButtonType.OK) {
             System.out.println("Ok selected. Part addition canceled.");
             displayScene(event, "/fxml/MainScreen.fxml");
         } else {
@@ -116,7 +117,8 @@ public class AddPartController implements Initializable, Controller {
     /**
      * If in-house radio button is selected set isOutsourced boolean
      * to false and modify dynamic label to Machine ID
-     * @param event 
+     *
+     * @param event
      */
     @FXML
     void handleInhouseRBtn(ActionEvent event) {
@@ -127,7 +129,8 @@ public class AddPartController implements Initializable, Controller {
     /**
      * If outsourced radio button is selected set isOutsourced boolean
      * to true and modify dynamic label to Company Name
-     * @param event 
+     *
+     * @param event
      */
     @FXML
     void handleOutsourcedRBtn(ActionEvent event) {
@@ -138,6 +141,7 @@ public class AddPartController implements Initializable, Controller {
     /**
      * Validate given part parameters.  If valid, add part to inventory,
      * else give user an error message explaining why the part is invalid.
+     *
      * @param event
      * @throws IOException
      */
@@ -150,24 +154,24 @@ public class AddPartController implements Initializable, Controller {
         String max = maxTxt.getText();
         String partDynamicValue = addPartDynamicTxt.getText();
         errorMessage = "";
-        
+
         try {
             errorMessage = Part.isValidPart(name, Double.parseDouble(price), Integer.parseInt(inStock), Integer.parseInt(min), Integer.parseInt(max), errorMessage);
-            if(errorMessage.length() > 0) {
+            if (errorMessage.length() > 0) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Error Adding Part!");
                 alert.setHeaderText("Error!");
                 alert.setContentText(errorMessage);
                 alert.showAndWait();
             } else {
-               if(isOutsourced == true) {
+                if (isOutsourced == true) {
                     service.addOutsourcePart(name, Double.parseDouble(price), Integer.parseInt(inStock), Integer.parseInt(min), Integer.parseInt(max), partDynamicValue);
                 } else {
                     service.addInhousePart(name, Double.parseDouble(price), Integer.parseInt(inStock), Integer.parseInt(min), Integer.parseInt(max), Integer.parseInt(partDynamicValue));
                 }
                 displayScene(event, "/fxml/MainScreen.fxml");
             }
-            
+
         } catch (NumberFormatException e) {
             System.out.println("Form contains blank field.");
             Alert alert = new Alert(Alert.AlertType.INFORMATION);

@@ -22,21 +22,21 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 
-public class MainScreenController implements Initializable,Controller {
-    
-     // Declare fields
+public class MainScreenController implements Initializable, Controller {
+
+    // Declare fields
     private Stage stage;
     private Parent scene;
     private static Part modifyPart;
     private static Product modifyProduct;
     private static int modifyPartIndex;
     private static int modifyProductIndex;
-    
+
     // Declare methods
     public static int getModifyPartIndex() {
         return modifyPartIndex;
     }
-    
+
     public static int getModifyProductIndex() {
         return modifyProductIndex;
     }
@@ -73,17 +73,18 @@ public class MainScreenController implements Initializable,Controller {
 
     @FXML
     private TableColumn<Product, Double> productsPriceCol;
-    
+
     @FXML
     private TextField partsSearchTxt;
-    
+
     @FXML
     private TextField productsSearchTxt;
 
-    public MainScreenController(){}
+    public MainScreenController() {
+    }
 
-    public void setService(InventoryService service){
-        this.service=service;
+    public void setService(InventoryService service) {
+        this.service = service;
         partsTableView.setItems(service.getAllParts());
         productsTableView.setItems(service.getAllProducts());
     }
@@ -109,16 +110,17 @@ public class MainScreenController implements Initializable,Controller {
 
     /**
      * Method to add to button handler to switch to scene passed as source
+     *
      * @param event
      * @param source
      * @throws IOException
      */
     private void displayScene(ActionEvent event, String source) throws IOException {
-        stage = (Stage)((Button)event.getSource()).getScene().getWindow();
-        FXMLLoader loader= new FXMLLoader(getClass().getResource(source));
+        stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(source));
         //scene = FXMLLoader.load(getClass().getResource(source));
         scene = loader.load();
-        Controller ctrl=loader.getController();
+        Controller ctrl = loader.getController();
         ctrl.setService(service);
         stage.setScene(new Scene(scene));
         stage.show();
@@ -126,7 +128,8 @@ public class MainScreenController implements Initializable,Controller {
 
     /**
      * Ask user for confirmation before deleting selected part from list of parts.
-     * @param event 
+     *
+     * @param event
      */
     @FXML
     void handleDeletePart(ActionEvent event) {
@@ -149,19 +152,20 @@ public class MainScreenController implements Initializable,Controller {
 
     /**
      * Ask user for confirmation before deleting selected product from list of products.
-     * @param event 
+     *
+     * @param event
      */
     @FXML
     void handleDeleteProduct(ActionEvent event) {
         Product product = productsTableView.getSelectionModel().getSelectedItem();
-        
+
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.initModality(Modality.NONE);
         alert.setTitle("Confirmation");
         alert.setHeaderText("Confirm Product Deletion?");
         alert.setContentText("Are you sure you want to delete product " + product.getName() + " from products?");
         Optional<ButtonType> result = alert.showAndWait();
-        
+
         if (result.get() == ButtonType.OK) {
             service.deleteProduct(product);
             System.out.println("Product " + product.getName() + " was removed.");
@@ -172,6 +176,7 @@ public class MainScreenController implements Initializable,Controller {
 
     /**
      * Switch scene to Add Part
+     *
      * @param event
      * @throws IOException
      */
@@ -182,6 +187,7 @@ public class MainScreenController implements Initializable,Controller {
 
     /**
      * Switch scene to Add Product
+     *
      * @param event
      * @throws IOException
      */
@@ -193,6 +199,7 @@ public class MainScreenController implements Initializable,Controller {
     /**
      * Changes scene to Modify Part screen and passes values of selected part
      * and its index
+     *
      * @param event
      * @throws IOException
      */
@@ -200,12 +207,13 @@ public class MainScreenController implements Initializable,Controller {
     void handleModifyPart(ActionEvent event) throws IOException {
         modifyPart = partsTableView.getSelectionModel().getSelectedItem();
         modifyPartIndex = service.getAllParts().indexOf(modifyPart);
-        
+
         displayScene(event, "/fxml/ModifyPart.fxml");
     }
 
     /**
      * Switch scene to Modify Product
+     *
      * @param event
      * @throws IOException
      */
@@ -213,13 +221,14 @@ public class MainScreenController implements Initializable,Controller {
     void handleModifyProduct(ActionEvent event) throws IOException {
         modifyProduct = productsTableView.getSelectionModel().getSelectedItem();
         modifyProductIndex = service.getAllProducts().indexOf(modifyProduct);
-        
+
         displayScene(event, "/fxml/ModifyProduct.fxml");
     }
 
     /**
      * Ask user for confirmation before exiting
-     * @param event 
+     *
+     * @param event
      */
     @FXML
     void handleExit(ActionEvent event) {
@@ -229,7 +238,7 @@ public class MainScreenController implements Initializable,Controller {
         alert.setHeaderText("Confirm Exit");
         alert.setContentText("Are you sure you want to exit?");
         Optional<ButtonType> result = alert.showAndWait();
-        if(result.get() == ButtonType.OK) {
+        if (result.get() == ButtonType.OK) {
             System.out.println("Ok selected. Program exited");
             System.exit(0);
         } else {
@@ -239,7 +248,8 @@ public class MainScreenController implements Initializable,Controller {
 
     /**
      * Gets search text and inputs into lookupPart method to highlight desired part
-     * @param event 
+     *
+     * @param event
      */
     @FXML
     void handlePartsSearchBtn(ActionEvent event) {
@@ -249,7 +259,8 @@ public class MainScreenController implements Initializable,Controller {
 
     /**
      * Gets search text and inputs into lookupProduct method to highlight desired product
-     * @param event 
+     *
+     * @param event
      */
     @FXML
     void handleProductsSearchBtn(ActionEvent event) {

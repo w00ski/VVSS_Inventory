@@ -6,7 +6,7 @@ import javafx.collections.ObservableList;
 
 
 public class Product {
-    
+
     // Declare fields
     private ObservableList<Part> associatedParts;// = FXCollections.observableArrayList();
     private int productId;
@@ -24,9 +24,9 @@ public class Product {
         this.inStock = inStock;
         this.min = min;
         this.max = max;
-        this.associatedParts= partList;
+        this.associatedParts = partList;
     }
-    
+
     // Getters
     public ObservableList<Part> getAssociatedParts() {
         return associatedParts;
@@ -55,7 +55,7 @@ public class Product {
     public int getMax() {
         return max;
     }
-    
+
     // Setters
     public void setAssociatedParts(ObservableList<Part> associatedParts) {
         associatedParts = associatedParts;
@@ -84,28 +84,29 @@ public class Product {
     public void setMax(int max) {
         this.max = max;
     }
-    
+
     // Other methods
     public void addAssociatedPart(Part part) {
         associatedParts.add(part);
     }
-    
+
     public void removeAssociatedPart(Part part) {
         associatedParts.remove(part);
     }
-    
+
     public Part lookupAssociatedPart(String searchItem) {
-        for(Part p:associatedParts) {
-            if(p.getName().contains(searchItem) || new Integer(p.getPartId()).toString().equals(searchItem)) return p;
+        for (Part p : associatedParts) {
+            if (p.getName().contains(searchItem) || new Integer(p.getPartId()).toString().equals(searchItem)) return p;
         }
         return null;
     }
-    
+
     /**
      * Generate an error message for invalid values in a product
      * and evaluate whether the sum of the price of associated parts
      * is less than the price of the resulting product.
      * A valid product will return an empty error message string.
+     *
      * @param name
      * @param min
      * @param max
@@ -113,7 +114,7 @@ public class Product {
      * @param price
      * @param parts
      * @param errorMessage
-     * @return 
+     * @return
      */
     public static String isValidProduct(String name, double price, int inStock, int min, int max, ObservableList<Part> parts, String errorMessage) {
         double sumOfParts = 0.00;
@@ -127,15 +128,15 @@ public class Product {
             errorMessage += "The inventory level must be greater than 0. ";
         }
         if (price < 0.01) {
-            errorMessage += "The price must be greater than $0. ";
+            errorMessage += "The price must be greater than $0.01. ";
         }
         if (min > max) {
             errorMessage += "The Min value must be less than the Max value. ";
         }
-        if(inStock < min) {
+        if (inStock < min) {
             errorMessage += "Inventory level is lower than minimum value. ";
         }
-        if(inStock > max) {
+        if (inStock > max) {
             errorMessage += "Inventory level is higher than the maximum value. ";
         }
         if (parts.size() < 1) {
@@ -149,7 +150,7 @@ public class Product {
 
     @Override
     public String toString() {
-        return "P,"+this.productId+","+this.name+","+this.price+","+this.inStock+","+
-                this.min+","+this.max;
+        return "P," + this.productId + "," + this.name + "," + this.price + "," + this.inStock + "," +
+                this.min + "," + this.max;
     }
 }
