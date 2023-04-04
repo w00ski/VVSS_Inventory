@@ -31,7 +31,10 @@ public class InventoryService {
     public void addProduct(String name, double price, int inStock, int min, int max, ObservableList<Part> addParts) {
         Product product =
                 new Product(repo.getAutoProductId(), name, price, inStock, min, max, addParts);
-        repo.addProduct(product);
+        String error = "";
+        if (Product.isValidProduct(name, price, inStock, min, max, addParts, error)) {
+            repo.addProduct(product);
+        }
     }
 
     public ObservableList<Part> getAllParts() {
