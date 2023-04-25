@@ -23,7 +23,7 @@ public class InventoryTest {
         inventory = new Inventory();
         inventory.addProduct(new Product(
                 0,
-                "Name0",
+                "ZeroName",
                 10,
                 50,
                 0,
@@ -32,7 +32,7 @@ public class InventoryTest {
         ));
         inventory.addProduct(new Product(
                 1,
-                "Name1",
+                "FirstName",
                 10,
                 50,
                 0,
@@ -41,7 +41,16 @@ public class InventoryTest {
         ));
         inventory.addProduct(new Product(
                 2,
-                "Name2",
+                "SecondName",
+                10,
+                50,
+                0,
+                100,
+                FXCollections.emptyObservableList()
+        ));
+        inventory.addProduct(new Product(
+                3,
+                "ThirdName",
                 10,
                 50,
                 0,
@@ -56,31 +65,25 @@ public class InventoryTest {
 
     @Test
     void lookForProductByIdTest() {
-        var prod = inventory.lookupProduct("2");
+        var prod = inventory.lookupProduct("3");
         assert (prod != null);
     }
 
     @Test
     void lookForProductByNameTest() {
-        var prod = inventory.lookupProduct("Name2");
+        var prod = inventory.lookupProduct("Second");
         assert (prod != null);
     }
 
     @Test
-    void lookForProductByNameNotFoundTest() {
-        var prod = inventory.lookupProduct("Name100");
-        assert (prod.getName() == null);
-    }
-
-    @Test
-    void lookForProductByIdNotFoundTest() {
-        var prod = inventory.lookupProduct("100");
-        assert (prod.getName() == null);
-    }
-
-    @Test
     void lookForProductNotFoundTest() {
-        var prod = inventory.lookupProduct("");
-        assert (prod == null);
+        var prod = inventory.lookupProduct("CantFind");
+        assert (prod.getName() == null);
+    }
+
+    @Test
+    void lookForProductAnythingTest() {
+        var prod = inventory.lookupProduct("AnythingReally");
+        assert (prod.getName() == null);
     }
 }
