@@ -12,4 +12,5 @@ module inventory {
     exports inventory.repository;
     exports inventory.repository.fake;
     opens inventory.service;
+    opens inventory.repository;
 }
