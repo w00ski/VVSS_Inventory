@@ -57,25 +57,25 @@ public class InventoryUnitTest {
 
     @Test
     void lookForProductByIdTest() {
-        var prod = inventory.lookupProduct("3");
+        Product prod = inventory.lookupProduct("3");
         assert (prod != null);
     }
 
     @Test
     void lookForProductByNameTest() {
-        var prod = inventory.lookupProduct("Second");
+        Product prod = inventory.lookupProduct("Second");
         assert (prod != null);
     }
 
     @Test
     void lookForProductNotFoundTest() {
-        var prod = inventory.lookupProduct("CantFind");
+        Product prod = inventory.lookupProduct("CantFind");
         assert (prod.getName() == null);
     }
 
     @Test
     void lookForProductAnythingTest() {
-        var prod = inventory.lookupProduct("AnythingReally");
+        Product prod = inventory.lookupProduct("AnythingReally");
         assert (prod.getName() == null);
     }
 }
