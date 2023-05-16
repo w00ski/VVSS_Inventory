@@ -1,20 +1,12 @@
-package inventory;
+package inventory.model;
 
 import inventory.model.Inventory;
-import inventory.model.Part;
 import inventory.model.Product;
-import inventory.repository.InventoryRepository;
-import inventory.service.FakeInventoryRepository;
-import inventory.service.InventoryService;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import org.junit.jupiter.api.*;
 
-import java.lang.reflect.Array;
-import java.util.*;
-
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class InventoryTest {
+public class InventoryUnitTest {
 
     private Inventory inventory;
 

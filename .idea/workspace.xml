@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d01e246a-d9fb-4816-bc10-a56ab29f7454" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/inventory/service/FakeInventoryRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/inventory/service/InventoryServiceBVATest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/inventory/service/InventoryServiceECPTest.java" afterDir="false" />
+    <list default="true" id="d01e246a-d9fb-4816-bc10-a56ab29f7454" name="Default Changelist" comment="lab 04 - mockito tests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/inventory/model/Part.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/inventory/model/Part.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/inventory/service/InventoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/inventory/service/InventoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/inventory/model/prev/InventoryUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/inventory/model/InventoryUnitTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/inventory/service/prev/FakeInventoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/inventory/service/FakeInventoryRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/inventory/service/prev/InventoryServiceBVATest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/inventory/service/InventoryServiceBVATest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/inventory/service/prev/InventoryServiceECPTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/inventory/service/InventoryServiceECPTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,39 +40,115 @@
   "keyToString": {
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/razvanursu/IdeaProjects/VVSS_Inventory/src/main/java/inventory/repository",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.31149426",
-    "settings.editor.selected.configurable": "AndroidSdkUpdater"
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/inventory/repository" />
       <recent name="E:\VVSS\CamiVVSS_ro2019-2020\Labs\Proiecte\Inventory\src\main\resources\data" />
       <recent name="E:\VVSS\CamiVVSS_ro2019-2020\Labs\Proiecte\Inventory\src\main\java\resources\data" />
       <recent name="E:\VVSS\CamiVVSS_ro2019-2020\Labs\Proiecte\Inventory\src\main\java" />
       <recent name="E:\VVSS\CamiVVSS_ro2019-2020\Labs\Proiecte\Inventory\src\main\java\inventory" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/test/java/inventory/service" />
+      <recent name="$PROJECT_DIR$/src/test/java/inventory/repository" />
+      <recent name="$PROJECT_DIR$/src/test/java/inventory/model" />
       <recent name="E:\VVSS\CamiVVSS_ro2022-2023\Labs\Proiecte\02_Inventory" />
       <recent name="E:\VVSS\CamiVVSS_ro2019-2020\Labs\Proiecte\Inventory\src\main" />
-      <recent name="E:\VVSS\CamiVVSS_ro2019-2020\Labs\Proiecte\Inventory\src\main\resources" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="inventory.model" />
+      <recent name="inventory.service" />
+      <recent name="inventory.repository" />
       <recent name="inventory" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="inventory.repository" />
+    </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="inventory.Main" />
+  <component name="RunManager" selected="JUnit.InventoryServiceTest">
+    <configuration name="InventoryRepositoryIntegrationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Inventory" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="inventory.*" />
+          <option name="PATTERN" value="inventory.repository.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="inventory.repository" />
+      <option name="MAIN_CLASS_NAME" value="inventory.repository.InventoryRepositoryIntegrationTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InventoryRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Inventory" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="inventory.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="inventory.repository" />
+      <option name="MAIN_CLASS_NAME" value="inventory.repository.InventoryRepositoryTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InventoryServiceIntegrationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Inventory" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="inventory.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="inventory.service" />
+      <option name="MAIN_CLASS_NAME" value="inventory.service.InventoryServiceIntegrationTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InventoryServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Inventory" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="inventory.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="inventory.service" />
+      <option name="MAIN_CLASS_NAME" value="inventory.service.InventoryServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InventoryTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Inventory" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="inventory.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="inventory.model" />
+      <option name="MAIN_CLASS_NAME" value="inventory.model.InventoryTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -106,12 +180,20 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.InventoryRepositoryIntegrationTest" />
+      <item itemvalue="JUnit.InventoryRepositoryTest" />
+      <item itemvalue="JUnit.InventoryServiceIntegrationTest" />
+      <item itemvalue="JUnit.InventoryServiceTest" />
+      <item itemvalue="JUnit.InventoryTest (1)" />
       <item itemvalue="Maven.Inventory [exec:java]" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.InventoryServiceTest" />
+        <item itemvalue="JUnit.InventoryServiceIntegrationTest" />
+        <item itemvalue="JUnit.InventoryRepositoryTest" />
+        <item itemvalue="JUnit.InventoryRepositoryIntegrationTest" />
+        <item itemvalue="JUnit.InventoryTest (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -143,11 +225,70 @@
       <workItem from="1677483411785" duration="1742000" />
       <workItem from="1677486941391" duration="1304000" />
       <workItem from="1677488299059" duration="1133000" />
+      <workItem from="1684228477882" duration="2131000" />
     </task>
+    <task id="LOCAL-00001" summary="lab 04 - mockito tests">
+      <created>1684229957844</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1684229957844</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="lab 04 - mockito tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="lab 04 - mockito tests" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/inventory/repository/InventoryRepositoryIntegrationTest.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/inventory/repository/InventoryRepositoryIntegrationTest.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/inventory/repository/InventoryRepositoryIntegrationTest.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/inventory/repository/InventoryRepositoryIntegrationTest.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/inventory/repository/InventoryRepositoryIntegrationTest.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/inventory/repository/InventoryRepositoryIntegrationTest.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/inventory/repository/InventoryRepositoryIntegrationTest.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Inventory_iml$InventoryTest.ic" NAME="InventoryTest Coverage Results" MODIFIED="1682439590195" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>inventory.*</FILTER>
+    </SUITE>
   </component>
   <component name="simpleUML.UMLToolWindowPlugin">
     <General>

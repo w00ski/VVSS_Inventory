@@ -139,9 +139,9 @@ public class Product {
         if (inStock > max) {
             errorMessage += "Inventory level is higher than the maximum value. ";
         }
-        if (parts.size() < 1) {
-            errorMessage += "Product must contain at least 1 part. ";
-        }
+//        if (parts.size() < 1) {
+//            errorMessage += "Product must contain at least 1 part. ";
+//        }
         if (sumOfParts > price) {
             errorMessage += "Product price must be greater than cost of parts. ";
         }
