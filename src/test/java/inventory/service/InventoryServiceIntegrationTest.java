@@ -5,6 +5,7 @@ import inventory.repository.fake.FakeInMemoryRepository;
 import javafx.collections.FXCollections;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 public class InventoryServiceIntegrationTest {
 
@@ -12,35 +13,63 @@ public class InventoryServiceIntegrationTest {
     private FakeInMemoryRepository inventoryRepository;
 
     @BeforeEach
-    public void setUp(){
+    public void setUp() {
         inventoryRepository = new FakeInMemoryRepository();
         inventoryService = new InventoryService(inventoryRepository);
     }
 
-    private void testSameSize(){
+    private void assertSize() {
         assert inventoryService.getAllProducts().size() == inventoryRepository.getInventory().getProducts().size();
     }
 
     @Test
-    public void testAdd(){
+    public void testAdd() {
         assert inventoryService.getAllProducts().size() == 0;
-        testSameSize();
+        assertSize();
 
-        inventoryService.addProduct("name", 3.14, 5, 1, 10, FXCollections.observableArrayList());
+        Product product = Mockito.mock(Product.class);
+        Mockito.when(product.getName()).thenReturn("name");
+        Mockito.when(product.getPrice()).thenReturn(10.3);
+        Mockito.when(product.getInStock()).thenReturn(10);
+        Mockito.when(product.getMin()).thenReturn(1);
+        Mockito.when(product.getMax()).thenReturn(100);
+
+        inventoryService.addProduct(
+                product.getName(),
+                product.getPrice(),
+                product.getInStock(),
+                product.getMin(),
+                product.getMax(),
+                FXCollections.observableArrayList()
+        );
+
         assert inventoryService.getAllProducts().size() == 1;
-        testSameSize();
+        assertSize();
     }
 
     @Test
-    public void testDelete(){
-        Product product = new Product(0, "name", 3.14, 5, 1, 10, FXCollections.observableArrayList());
-        inventoryService.addProduct("name", 3.14, 5, 1, 10, FXCollections.observableArrayList());
+    public void testDelete() {
+        Product product = Mockito.mock(Product.class);
+        Mockito.when(product.getName()).thenReturn("name");
+        Mockito.when(product.getPrice()).thenReturn(10.3);
+        Mockito.when(product.getInStock()).thenReturn(10);
+        Mockito.when(product.getMin()).thenReturn(1);
+        Mockito.when(product.getMax()).thenReturn(100);
+
+        inventoryService.addProduct(
+                product.getName(),
+                product.getPrice(),
+                product.getInStock(),
+                product.getMin(),
+                product.getMax(),
+                FXCollections.observableArrayList()
+        );
         assert inventoryService.getAllProducts().size() == 1;
-        testSameSize();
+        assertSize();
 
         inventoryService.deleteProduct(product);
         assert inventoryService.getAllProducts().size() == 1;
-        testSameSize();
+        assertSize();
     }
 
 }
